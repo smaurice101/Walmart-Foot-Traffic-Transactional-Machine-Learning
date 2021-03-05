@@ -6,6 +6,7 @@ Pre-requisites:
 4) python libraries
 5) Kafka Cloud account - use Confluent Cloud (https://confluent.cloud/login)
 6) Beginner knowledge of Python, VIPER, Kafka
+7) This code will do TML every 60 seconds 
 
 ```python
 # Developed by: Sebastian Maurice, PhD
