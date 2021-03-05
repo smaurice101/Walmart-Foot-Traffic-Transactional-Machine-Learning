@@ -1,10 +1,11 @@
 To produce data to Kafka run the Python code below
 Pre-requisites: 
 1) MAADS-VIPER Should be Listening on IP: http://127.0.0.1, and Port: 8000, HPDE Should be Listening On Port: 8001
-2) Python 3.5+
-3) python libraries
-4) Kafka Cloud account - use Confluent Cloud (https://confluent.cloud/login)
-5) Beginner knowledge of Python, VIPER, Kafka
+2) Install in folder /viperdemo
+3) Python 3.5+
+4) python libraries
+5) Kafka Cloud account - use Confluent Cloud (https://confluent.cloud/login)
+6) Beginner knowledge of Python, VIPER, Kafka
 
 ```python
 # Developed by: Sebastian Maurice, PhD
@@ -33,7 +34,7 @@ hpdehost="http://127.0.0.1"
 hpdeport=8001
 
 # Set Global variable for Viper confifuration file - change the folder path for your computer
-viperconfigfile="C:/maads/golang/go/bin/viper.env"
+viperconfigfile="C:/viperdemo/viper.env"
 
 #############################################################################################################
 #                                      STORE VIPER TOKEN
@@ -41,7 +42,7 @@ viperconfigfile="C:/maads/golang/go/bin/viper.env"
 # to your location of admin.tok
 def getparams():
         
-     with open("c:/viper/admin.tok", "r") as f:
+     with open("c:/viperdemo/admin.tok", "r") as f:
         VIPERTOKEN=f.read()
   
      return VIPERTOKEN
