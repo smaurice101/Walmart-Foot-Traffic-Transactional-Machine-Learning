@@ -15,6 +15,33 @@ Pre-requisites:
 # Toronto, Ontario Canada
 # For help email: support@otics.ca 
 
+#######################################################################################################################################
+
+# This file will perform TML for Walmart Foot Traffic.  Before using this code you MUST have:
+# 1) Downloaded and installed MAADS-VIPER from: https://github.com/smaurice101/transactionalmachinelearning
+
+# 2) You have:
+# a) VIPER listening for a connection on port IP: http://127.0.01 and PORT: 8000 (you can specify different IP and PORT
+#    just change the  VIPERHOST="http://127.0.0.1" and VIPERPORT=8000)
+# b) HPDE listening for a connection on port IP: http://127.0.01 and PORT: 8001 (you can specify different IP and PORT
+#    just change the  hpdehost="http://127.0.0.1" and hpdeport=8001)
+
+# 3) You have created a Kafka cluster in Confluent Cloud (https://confluent.cloud/)
+
+# 4) You have updated the VIPER.ENV file in the following fields:
+# a) KAFKA_CONNECT_BOOTSTRAP_SERVERS=[Enter the bootstrap server - this is the Kafka broker(s) - separate multiple brokers by a comma]
+# b) KAFKA_ROOT=kafka
+# c) SSL_CLIENT_CERT_FILE=[Enter the full path to client.cer.pem]
+# d) SSL_CLIENT_KEY_FILE=[Enter the full path to client.key.pem]
+# e) SSL_SERVER_CERT_FILE=[Enter the full path to server.cer.pem]
+
+# f) CLOUD_USERNAME=[Enter the Cloud Username- this is the KEY]
+# g) CLOUD_PASSWORD=[Enter the Cloud Password - this is the secret]
+
+# NOTE: IF YOU GET STUCK WATCH THE YOUTUBE VIDEO: https://www.youtube.com/watch?v=b1fuIeC7d-8
+# Or email support@otics.ca
+#########################################################################################################################################
+
 # Import the core libraries
 import maadstml
 
@@ -261,7 +288,7 @@ def performSupervisedMachineLearning():
       # This parameter will attempt to fine tune the model search space - a number close to 0 means you will have lots of
       # models but their quality may be low.  A number close to 100 means you will have fewer models but their predictive
       # quality will be higher.
-      modelsearchtuner=85
+      modelsearchtuner=90
       
       result=maadstml.viperhpdetraining(VIPERTOKEN,VIPERHOST,VIPERPORT,consumefrom,producetotopic,
                                       companyname,consumeridtrainingdata2,producerid, hpdehost,
@@ -282,4 +309,5 @@ for j in range(numpredictions):
   except Exception as e:
     print(e)   
     continue   
+
 ```
