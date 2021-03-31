@@ -168,13 +168,9 @@ def performSupervisedMachineLearning():
         y = json.loads(result)
 
       #get the partition
-      for elements in y:
-        try:
-          if 'Partition' in elements:
-             partition=elements['Partition'] 
-        except Exception as e:
-          continue
+      partition=y['Partition']
 
+  
       #############################################################################################################
       #                           CREATE TOPIC TO SAVE TRAINING DATA SET FROM STREAM
 
@@ -303,9 +299,9 @@ numpredictions=10000
 
 for j in range(numpredictions):
   try:
-     # Re-train every 60 seconds- change to whatever number you wish
+     # Re-train every 10 seconds- change to whatever number you wish
      performSupervisedMachineLearning()
-     time.sleep(60)  
+     time.sleep(10)  
   except Exception as e:
     print(e)   
     continue   
